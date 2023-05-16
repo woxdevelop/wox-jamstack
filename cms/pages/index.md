@@ -6,7 +6,9 @@ slug: ''
 tags: pages
 seo:
   noindex: false
-  title: Blog template - Webflow HTML website template
+  title: Nova Architecture
+  og:title: Nova Architecture
+  twitter:title: Nova Architecture
 ---
 
 

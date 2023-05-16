@@ -79,9 +79,9 @@ collections:
             name: additional_tags
             widget: text
             required: false
-  - name: article
-    label: Articles
-    folder: cms/article
+  - name: projects
+    label: Projects
+    folder: cms/projects
     create: true
     identifier_field: name
     extension: md
@@ -108,80 +108,13 @@ collections:
         widget: datetime
         required: false
       - hint: ''
-        name: f_heading-image
-        label: Heading Image
-        widget: object
-        required: false
-        fields:
-          - hint: ''
-            name: url
-            label: Image
-            widget: image
-            required: false
-            allow_multiple: false
-          - hint: Image Alt
-            name: alt
-            label: alt
-            widget: string
-            required: false
-      - label: Tags
-        widget: hidden
-        name: tags
-        default: article
-      - label: Layout
-        widget: hidden
-        name: layout
-        default: '[article].html'
-      - label: Publish Date
-        name: date
-        widget: datetime
-      - *ref_0
-  - name: wox_articles
-    label: WOX Articles
-    folder: cms/wox-articles
-    create: true
-    identifier_field: name
-    extension: md
-    slug: '{{slug}}'
-    fields:
-      - hint: ''
-        name: title
-        label: Name
-        widget: string
-        required: true
-      - hint: ''
-        name: created-on
-        label: Created On
-        widget: datetime
-        required: false
-      - hint: ''
-        name: updated-on
-        label: Updated On
-        widget: datetime
-        required: false
-      - hint: ''
-        name: published-on
-        label: Published On
-        widget: datetime
-        required: false
-      - hint: ''
-        name: f_title-of-artices
-        label: Title of artices
+        name: f_project-subheading
+        label: Project Subheading
         widget: string
         required: false
       - hint: ''
-        name: f_type-of-artices
-        label: Type of artices
-        widget: string
-        required: false
-      - hint: ''
-        name: f_date-of-artices
-        label: Date of artices
-        widget: string
-        required: false
-      - hint: ''
-        name: f_cover-image-of-artices
-        label: Cover image of artices
+        name: f_cover-image
+        label: Cover Image
         widget: object
         required: false
         fields:
@@ -197,77 +130,21 @@ collections:
             widget: string
             required: false
       - hint: ''
-        name: f_background-image-of-artices
-        label: Background image of artices
-        widget: object
-        required: false
-        fields:
-          - hint: ''
-            name: url
-            label: Image
-            widget: image
-            required: false
-            allow_multiple: false
-          - hint: Image Alt
-            name: alt
-            label: alt
-            widget: string
-            required: false
-      - label: Tags
-        widget: hidden
-        name: tags
-        default: wox-articles
-      - label: Layout
-        widget: hidden
-        name: layout
-        default: '[wox-articles].html'
-      - label: Publish Date
-        name: date
-        widget: datetime
-      - *ref_0
-  - name: posts
-    label: Posts
-    folder: cms/posts
-    create: true
-    identifier_field: name
-    extension: md
-    slug: '{{slug}}'
-    fields:
-      - hint: ''
-        name: title
-        label: Name
+        name: f_paragraph-1
+        label: Paragraph 1
         widget: string
-        required: true
-      - hint: ''
-        name: created-on
-        label: Created On
-        widget: datetime
         required: false
       - hint: ''
-        name: updated-on
-        label: Updated On
-        widget: datetime
-        required: false
-      - hint: ''
-        name: published-on
-        label: Published On
-        widget: datetime
-        required: false
-      - label: Post Content
-        name: body
-        widget: markdown
-        required: false
-      - hint: ''
-        name: f_article-image
-        label: Article Thumbnail
+        name: f_circular-image
+        label: Circular Image
         widget: object
-        required: true
+        required: false
         fields:
           - hint: ''
             name: url
             label: Image
             widget: image
-            required: true
+            required: false
             allow_multiple: false
           - hint: Image Alt
             name: alt
@@ -275,65 +152,44 @@ collections:
             widget: string
             required: false
       - hint: ''
-        name: f_article-header-image
-        label: Article Header Image
-        widget: object
-        required: true
-        fields:
-          - hint: ''
-            name: url
-            label: Image
-            widget: image
-            required: true
-            allow_multiple: false
-          - hint: Image Alt
-            name: alt
-            label: alt
-            widget: string
-            required: false
-      - hint: Title of the post
-        name: f_title
-        label: Title
+        name: f_paragraph-2
+        label: Paragraph 2
         widget: string
-        required: true
-      - hint: Short description of the post
-        name: f_text
-        label: Intro Text
-        widget: text
-        required: true
+        required: false
       - hint: ''
-        name: f_author-4
-        label: Author
+        name: f_fullscreen-image
+        label: fullscreen Image
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_closing-paragraph
+        label: Closing Paragraph
+        widget: string
+        required: false
+      - hint: ''
+        name: f_button-link-2
+        label: Button Link
+        widget: string
+        required: false
+      - hint: ''
+        name: f_more-projects
+        label: More projects
         widget: relation
         required: true
-        collection: team_members
-        value_field: cms/team-members/{{slug}}.md
-        search_fields:
-          - slug
-          - name
-        display_fields:
-          - title
-        multiple: false
-      - hint: ''
-        name: f_category-5
-        label: Category
-        widget: relation
-        required: true
-        collection: category
-        value_field: cms/category/{{slug}}.md
-        search_fields:
-          - slug
-          - name
-        display_fields:
-          - title
-        multiple: false
-      - hint: ''
-        name: f_tags
-        label: Tags
-        widget: relation
-        required: false
-        collection: tags
-        value_field: cms/tags/{{slug}}.md
+        collection: projects
+        value_field: cms/projects/{{slug}}.md
         search_fields:
           - slug
           - name
@@ -343,153 +199,11 @@ collections:
       - label: Tags
         widget: hidden
         name: tags
-        default: posts
+        default: projects
       - label: Layout
         widget: hidden
         name: layout
-        default: '[posts].html'
-      - label: Publish Date
-        name: date
-        widget: datetime
-      - *ref_0
-  - name: team_members
-    label: Team Members
-    folder: cms/team-members
-    create: true
-    identifier_field: name
-    extension: md
-    slug: '{{slug}}'
-    fields:
-      - hint: ''
-        name: title
-        label: Name
-        widget: string
-        required: true
-      - hint: ''
-        name: created-on
-        label: Created On
-        widget: datetime
-        required: false
-      - hint: ''
-        name: updated-on
-        label: Updated On
-        widget: datetime
-        required: false
-      - hint: ''
-        name: published-on
-        label: Published On
-        widget: datetime
-        required: false
-      - hint: Image of the author
-        name: f_avatar
-        label: Avatar
-        widget: object
-        required: false
-        fields:
-          - hint: ''
-            name: url
-            label: Image
-            widget: image
-            required: false
-            allow_multiple: false
-          - hint: Image Alt
-            name: alt
-            label: alt
-            widget: string
-            required: false
-      - hint: Role in the company
-        name: f_role
-        label: Role
-        widget: string
-        required: false
-      - label: Tags
-        widget: hidden
-        name: tags
-        default: team-members
-      - label: Layout
-        widget: hidden
-        name: layout
-        default: '[team-members].html'
-      - label: Publish Date
-        name: date
-        widget: datetime
-      - *ref_0
-  - name: category
-    label: Categories
-    folder: cms/category
-    create: true
-    identifier_field: name
-    extension: md
-    slug: '{{slug}}'
-    fields:
-      - hint: ''
-        name: title
-        label: Name
-        widget: string
-        required: true
-      - hint: ''
-        name: created-on
-        label: Created On
-        widget: datetime
-        required: false
-      - hint: ''
-        name: updated-on
-        label: Updated On
-        widget: datetime
-        required: false
-      - hint: ''
-        name: published-on
-        label: Published On
-        widget: datetime
-        required: false
-      - label: Tags
-        widget: hidden
-        name: tags
-        default: category
-      - label: Layout
-        widget: hidden
-        name: layout
-        default: '[category].html'
-      - label: Publish Date
-        name: date
-        widget: datetime
-      - *ref_0
-  - name: tags
-    label: Tags
-    folder: cms/tags
-    create: true
-    identifier_field: name
-    extension: md
-    slug: '{{slug}}'
-    fields:
-      - hint: ''
-        name: title
-        label: Name
-        widget: string
-        required: true
-      - hint: ''
-        name: created-on
-        label: Created On
-        widget: datetime
-        required: false
-      - hint: ''
-        name: updated-on
-        label: Updated On
-        widget: datetime
-        required: false
-      - hint: ''
-        name: published-on
-        label: Published On
-        widget: datetime
-        required: false
-      - label: Tags
-        widget: hidden
-        name: tags
-        default: tags
-      - label: Layout
-        widget: hidden
-        name: layout
-        default: '[tags].html'
+        default: '[projects].html'
       - label: Publish Date
         name: date
         widget: datetime
@@ -584,229 +298,364 @@ collections:
             name: title
             widget: hidden
             default: Texts
-          - hint: 'Original text: 關於我們, key: 45a96380'
+          - hint: 'Original text: Home, key: 2268ff'
             label: Text
-            name: 45a96380
+            name: 2268ff
             widget: string
-          - hint: 'Original text: 聯繫我們, key: 3c48b4fc'
+          - hint: 'Original text: Projects, key: -37ac8366'
             label: Text
-            name: 3c48b4fc
+            name: '-37ac8366'
             widget: string
-          - hint: 'Original text: By, key: 877'
+          - hint: 'Original text: About, key: 3c2336d'
             label: Text
-            name: '877'
+            name: 3c2336d
             widget: string
-          - hint: 'Original text: No items found., key: 3d503d2b'
+          - hint: 'Original text: Contact, key: -64104400'
             label: Text
-            name: 3d503d2b
+            name: '-64104400'
             widget: string
-          - hint: >-
-              Original text: © 2023 WOX Design Company. All Rights Reserved.,
-              key: 314510b3
+          - hint: 'Original text: NOVA ARCHITECTS, key: -246c546e'
             label: Text
-            name: 314510b3
-            widget: string
-          - hint: 'Original text: Latest POSTS, key: -3eb28606'
-            label: Text
-            name: '-3eb28606'
-            widget: string
-          - hint: 'Original text: Posts By, key: 31067404'
-            label: Text
-            name: '31067404'
-            widget: string
-          - hint: 'Original text: Latest Posts, key: -3ea37e06'
-            label: Text
-            name: '-3ea37e06'
-            widget: string
-          - hint: 'Original text: Rich Text Element styles, key: 81798b5'
-            label: Text
-            name: 81798b5
-            widget: string
-          - hint: 'Original text: Heading 1, key: 6af22973'
-            label: Text
-            name: 6af22973
-            widget: string
-          - hint: 'Original text: Heading 2, key: 6af22974'
-            label: Text
-            name: 6af22974
-            widget: string
-          - hint: 'Original text: Heading 3, key: 6af22975'
-            label: Text
-            name: 6af22975
-            widget: string
-          - hint: 'Original text: Heading 4, key: 6af22976'
-            label: Text
-            name: 6af22976
-            widget: string
-          - hint: 'Original text: Heading 5, key: 6af22977'
-            label: Text
-            name: 6af22977
-            widget: string
-          - hint: 'Original text: Heading 6, key: 6af22978'
-            label: Text
-            name: 6af22978
-            widget: string
-          - hint: 'Original text: Bold, key: 1faea5'
-            label: Text
-            name: 1faea5
-            widget: string
-          - hint: 'Original text: Italic, key: -7cddd9b0'
-            label: Text
-            name: '-7cddd9b0'
-            widget: string
-          - hint: 'Original text: Link, key: 24241a'
-            label: Text
-            name: 24241a
+            name: '-246c546e'
             widget: string
           - hint: >-
-              Original text: Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Praesent eget risus vitae massa semper aliquam quis mattis
-              quam. Morbi vitae tortor tempus, placerat leo et, suscipit lectus.
-              Phasellus ut euismod massa, eu eleifend ipsum., key: -405373bf
+              Original text: LOREM IPSUM DOLOR SIT AMET CONSECTUR EDIPIS ELIT,
+              key: 12888d02
             label: Text
-            name: '-405373bf'
+            name: 12888d02
+            widget: string
+          - hint: 'Original text: LESS IS MORE AT RIGHT HEMISPHERE, key: 7d4dec3b'
+            label: Text
+            name: 7d4dec3b
+            widget: string
+          - hint: >-
+              Original text: We believe that beautiful design is birthed on
+              finite assets. , key: 51d9b965
+            label: Text
+            name: 51d9b965
+            widget: string
+          - hint: >-
+              Original text: Excited by chaos, to create meaning without excess.
+              , key: 44cb37d2
+            label: Text
+            name: 44cb37d2
+            widget: string
+          - hint: 'Original text: ABOUT NOVA, key: 707788ff'
+            label: Text
+            name: 707788ff
+            widget: string
+          - hint: 'Original text: NOVA PROJECTS, key: -6d1b4e12'
+            label: Text
+            name: '-6d1b4e12'
+            widget: string
+          - hint: 'Original text: Project 1, key: 421c0cca'
+            label: Text
+            name: 421c0cca
+            widget: string
+          - hint: >-
+              Original text: Hey, take a look at the earthlings. Goodbye! Forget
+              the fat lady! You're obsessed with the fat lady! , key: 6d1cdad8
+            label: Text
+            name: 6d1cdad8
             widget: text
-          - hint: 'Original text: Unordered list item, key: 89443c9'
+          - hint: 'Original text: VIEW PROJECT, key: 5a73307e'
             label: Text
-            name: 89443c9
+            name: 5a73307e
             widget: string
-          - hint: 'Original text: Ordered list item, key: 3316e542'
+          - hint: 'Original text: Project 2, key: 421c0ccb'
             label: Text
-            name: '3316e542'
+            name: 421c0ccb
             widget: string
           - hint: >-
-              Original text: Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Praesent eget risus vitae massa semper aliquam quis mattis
-              quam. Morbi vitae tortor tempus, placerat leo et, suscipit lectus.
-              Phasellus ut euismod massa, eu eleifend ipsum, key: -54a7da73
+              Original text: Did he just throw my cat out of the window? My dad
+              once told me, laugh and the world laughs with you.., key:
+              -3d88f0f4
             label: Text
-            name: '-54a7da73'
+            name: '-3d88f0f4'
             widget: text
-          - hint: 'Original text: Social Barber club, key: 56a5be87'
+          - hint: 'Original text: Project 3, key: 421c0ccc'
             label: Text
-            name: 56a5be87
+            name: 421c0ccc
             widget: string
           - hint: >-
-              Original text: Topic 3 新世代創作者集結！共同加載靈感，2023 ARTOGO 線上畢業展「NOW
-              LOAD!NG」徵件開跑, key: 214ba8a0
+              Original text: You're a very talented young man, with your own
+              clever thoughts and ideas. Do you need a manager?, key: -69b72787
             label: Text
-            name: 214ba8a0
-            widget: string
-          - hint: 'Original text: Read more, key: 31997f7f'
-            label: Text
-            name: 31997f7f
-            widget: string
-          - hint: 'Original text: About Us, key: 645efc51'
-            label: Text
-            name: 645efc51
-            widget: string
-          - hint: 'Original text: 讀者手中的體驗導覽手冊, key: -1cdc7612'
-            label: Text
-            name: '-1cdc7612'
-            widget: string
-          - hint: >-
-              Original text: WOX(way of
-              experiencing)是讀者手中的一本體驗導覽手冊，透過與一眾品牌體驗的觸碰、互動與剖析當中的細節，以更深入與獨特的方式呈現在大眾的眼前，讓讀者在實際進行體驗的時候會有更多的感受與得著，成就最好的「體驗的方式」。,
-              key: -52edb20e
-            label: Text
-            name: '-52edb20e'
+            name: '-69b72787'
             widget: text
-          - hint: 'Original text: Way of Experiencing, key: 5c16e01f'
+          - hint: 'Original text: NOVA HIGHLIGHTS, key: -8c8ed4d'
             label: Text
-            name: 5c16e01f
+            name: '-8c8ed4d'
             widget: string
-          - hint: 'Original text: Article, key: 379164d6'
+          - hint: 'Original text: 169, key: beb4'
             label: Text
-            name: 379164d6
-            widget: string
-          - hint: >-
-              Original text: Topic 1 恣意流動的音樂夢！家是音樂旅途永遠的歸所，音樂人雷擎打造任靈魂起舞的最 Chill
-              住居, key: -2a71bb88
-            label: Text
-            name: '-2a71bb88'
-            widget: string
-          - hint: 'Original text: Read More, key: 318af39f'
-            label: Text
-            name: 318af39f
+            name: beb4
             widget: string
           - hint: >-
-              Original text: Topic 2 一本屬於 2020
-              世代的全新音樂雜誌：傳遞從不設限的前衛多變精神，《VIBES》勾勒台灣音樂面貌, key: 55fdf6f6
+              Original text: Yeah, but your scientists were so preoccupied with
+              whether or not., key: -23e7bc2b
             label: Text
-            name: 55fdf6f6
+            name: '-23e7bc2b'
             widget: string
-          - hint: 'Original text: Topic, key: 4d3dd0f'
+          - hint: 'Original text: 200, key: c1b2'
             label: Text
-            name: 4d3dd0f
+            name: c1b2
             widget: string
-          - hint: 'Original text: LATEST POSTS, key: 7a0e19da'
+          - hint: 'Original text: 100 MIL, key: 74ae1381'
             label: Text
-            name: 7a0e19da
+            name: 74ae1381
             widget: string
-          - hint: 'Original text: view all latest posts, key: -62bd99cc'
+          - hint: 'Original text: AWARDS WE WON, key: 7f83b9ce'
             label: Text
-            name: '-62bd99cc'
+            name: 7f83b9ce
             widget: string
-          - hint: 'Original text: featured POSTS, key: 6f82141'
+          - hint: 'Original text: NSW , key: 24b72e'
             label: Text
-            name: 6f82141
+            name: 24b72e
             widget: string
-          - hint: 'Original text: 體驗的方式, key: -323ea6e9'
+          - hint: 'Original text: AWARD, key: 3bc823d'
             label: Text
-            name: '-323ea6e9'
+            name: 3bc823d
             widget: string
-          - hint: 'Original text: 「我們經歷的永遠是體驗背後的故事、理念、細節與我們自身之間的連繫。」, key: 1a4d6dbc'
+          - hint: 'Original text: 2021, key: 1774fd'
             label: Text
-            name: 1a4d6dbc
-            widget: string
-          - hint: >-
-              Original text:
-              當我們越了解這些面向，我們就能從體驗中獲得更多不同的感受和認同，產生更深入的連結，成就更獨一無二的體驗，從這個過程中建立自己所追求的理想生活型態。,
-              key: 4368e4fc
-            label: Text
-            name: 4368e4fc
-            widget: string
-          - hint: 'Original text: Connection, key: 48965afe'
-            label: Text
-            name: 48965afe
-            widget: string
-          - hint: 'Original text: Way of, key: -65fbf338'
-            label: Text
-            name: '-65fbf338'
-            widget: string
-          - hint: 'Original text:  Experiencing, key: -4b1e1819'
-            label: Text
-            name: '-4b1e1819'
+            name: 1774fd
             widget: string
           - hint: >-
-              Original text: WOX(way of
-              experiencing)的任務就是成為讀者手的一本體驗導覽手冊，透過與一眾品牌體驗的觸碰、互動與剖析當中的細節，以更深入與獨特的方式呈現在大眾的眼前，讓讀者在實際進行體驗的時候會有更多的感受與得著，成就最好的「體驗的方式」。,
-              key: -71ff9f44
+              Original text: Yeah, but your scientists were so preoccupied with
+              whether or not they could, they didn't stop to think if they
+              should. , key: 75db019f
             label: Text
-            name: '-71ff9f44'
+            name: 75db019f
             widget: text
-          - hint: 'Original text: 分享你的故事, key: 72116eef'
+          - hint: 'Original text: ROBIN BOYD, key: 655518ee'
             label: Text
-            name: 72116eef
+            name: 655518ee
+            widget: string
+          - hint: 'Original text: 2019, key: 1774e6'
+            label: Text
+            name: '1774e6'
             widget: string
           - hint: >-
-              Original text:
-              我們致力於推廣一個更優質的生活風格，不論你喜歡的是時尚，工業設計，建築裝潢等，在這裡都可以找到世界最好的資訊，如果你喜歡我們的風格品味，也可以在這裡得到建議與靈感。我們相信，品味來自於生活中的大小細節，歡迎各位每天跟我們一起瀏覽世界，用風格來得到更多滿足。,
-              key: -2a2517cf
+              Original text: They're using our own satellites against us. And
+              the clock is ticking. You know what? It is beets. I've crashed
+              into a beet truck. Checkmate... , key: 19734a27
             label: Text
-            name: '-2a2517cf'
+            name: 19734a27
             widget: text
-          - hint: 'Original text: 姓名, key: b349a'
+          - hint: 'Original text: PRITZKER, key: -16877835'
             label: Text
-            name: b349a
+            name: '-16877835'
             widget: string
-          - hint: 'Original text: 電郵地址, key: 46ccd0ea'
+          - hint: 'Original text: PRIZE, key: 48dbbf2'
             label: Text
-            name: 46ccd0ea
+            name: 48dbbf2
             widget: string
-          - hint: 'Original text: 訊息, key: 1117a5'
+          - hint: 'Original text: 2018, key: 1774e5'
             label: Text
-            name: 1117a5
+            name: '1774e5'
+            widget: string
+          - hint: >-
+              Original text: Hey, take a look at the earthlings. Goodbye!
+              Checkmate... Yeah, but John, if The Pirates of the Caribbean
+              breaks down, the pirates don’t eat the tourists. , key: -1e3fad1c
+            label: Text
+            name: '-1e3fad1c'
+            widget: text
+          - hint: 'Original text: OUR SAN FRANCISCO OFFICE, key: -77cb47d0'
+            label: Text
+            name: '-77cb47d0'
+            widget: string
+          - hint: 'Original text: LET''S CREATE SOMETHING TOGETHER, key: -2e9d75b5'
+            label: Text
+            name: '-2e9d75b5'
+            widget: string
+          - hint: >-
+              Original text: They're using our own satellites against us. And
+              the clock is ticking. You know what? It is beets. , key: -2ac233bd
+            label: Text
+            name: '-2ac233bd'
+            widget: text
+          - hint: >-
+              Original text: Forget the fat lady! You're obsessed with the fat
+              lady! Drive us out of here! Forget the fat lady! , key: 63afa488
+            label: Text
+            name: 63afa488
+            widget: text
+          - hint: 'Original text: WRITE TO US, key: -4bed753e'
+            label: Text
+            name: '-4bed753e'
+            widget: string
+          - hint: 'Original text: HIRE US FOR WEBSITES LIKE THIS, key: 3826c10c'
+            label: Text
+            name: 3826c10c
+            widget: string
+          - hint: 'Original text: Mail us :, key: 619ae7e1'
+            label: Text
+            name: 619ae7e1
+            widget: string
+          - hint: 'Original text: hello@righthemisphere.in, key: -71b7bac1'
+            label: Text
+            name: '-71b7bac1'
+            widget: string
+          - hint: 'Original text: Page Not Found, key: -40b0787c'
+            label: Text
+            name: '-40b0787c'
+            widget: string
+          - hint: >-
+              Original text: The page you are looking for doesn't exist or has
+              been moved, key: 556d64d8
+            label: Text
+            name: 556d64d8
+            widget: string
+          - hint: >-
+              Original text: My dad once told me, laugh and the world laughs
+              with you, Cry, and I'll give you something to cry about you little
+              bastard! They're using our own satellites against us. And the
+              clock is ticking. I gave it a cold? I gave it a virus. A computer
+              virus. Just my luck, no ice., key: -2b5089db
+            label: Text
+            name: '-2b5089db'
+            widget: text
+          - hint: >-
+              Original text: DRIVE US OUT OF HERE, YOU THINK YOU CAN FLY THAT
+              THING ?, key: -98fca10
+            label: Text
+            name: '-98fca10'
+            widget: string
+          - hint: >-
+              Original text: Yeah, but your scientists were so preoccupied with
+              whether or not they could, they didn't stop to think if they
+              should. Yes, Yes, without the oops! What do they got in there?
+              King Kong? Remind me to thank John for a lovely weekend. You know
+              what? It is beets. I've crashed into a beet truck., key: 1dd6450b
+            label: Text
+            name: 1dd6450b
+            widget: text
+          - hint: 'Original text: MEET THE ARCHITECTS, key: -33b144ba'
+            label: Text
+            name: '-33b144ba'
+            widget: string
+          - hint: 'Original text: SPECTACLE JOHN, key: -80372e9'
+            label: Text
+            name: '-80372e9'
+            widget: string
+          - hint: 'Original text: CHIEF ARCHITECT, key: -5c721e66'
+            label: Text
+            name: '-5c721e66'
+            widget: string
+          - hint: >-
+              Original text: Is this my espresso machine? Wh-what is-h-how did
+              you get my espresso machine? , key: -4a7acc44
+            label: Text
+            name: '-4a7acc44'
+            widget: string
+          - hint: 'Original text: FANCY HAIR JANE, key: -61b0be0b'
+            label: Text
+            name: '-61b0be0b'
+            widget: string
+          - hint: 'Original text: CEO, key: 1042d'
+            label: Text
+            name: 1042d
+            widget: string
+          - hint: >-
+              Original text: Man destroys God. Man creates Dinosaurs. Yes, Yes,
+              without the oops! Must go faster. , key: 7b226bbd
+            label: Text
+            name: 7b226bbd
+            widget: string
+          - hint: 'Original text: MR GOODBOY, key: 2b4aa454'
+            label: Text
+            name: 2b4aa454
+            widget: string
+          - hint: 'Original text: JUNIOR ARHCITECT, key: -440805b8'
+            label: Text
+            name: '-440805b8'
+            widget: string
+          - hint: >-
+              Original text: Must go faster. I gave it a cold? I gave it a
+              virus. A computer virus. You really think you can fly that thing?
+              , key: -4de94039
+            label: Text
+            name: '-4de94039'
+            widget: text
+          - hint: 'Original text: WHAT DO OUR CLIENTS SAY, key: -3062141a'
+            label: Text
+            name: '-3062141a'
+            widget: string
+          - hint: 'Original text: JOHN DOE, key: -26a5137b'
+            label: Text
+            name: '-26a5137b'
+            widget: string
+          - hint: 'Original text: CEO, BIG MONEY, key: -59a27fe1'
+            label: Text
+            name: '-59a27fe1'
+            widget: string
+          - hint: 'Original text: ", key: 22'
+            label: Text
+            name: '22'
+            widget: string
+          - hint: >-
+              Original text: Love this company so much and love the team, key:
+              -39680a95
+            label: Text
+            name: '-39680a95'
+            widget: string
+          - hint: 'Original text: MR TECH OLIGARCH, key: -54bf5660'
+            label: Text
+            name: '-54bf5660'
+            widget: string
+          - hint: 'Original text: CEO, BIGTECHCOMPANY, key: 302ac0c8'
+            label: Text
+            name: 302ac0c8
+            widget: string
+          - hint: >-
+              Original text: Good spaces for quiet yoga sessions., key:
+              -7de24ecc
+            label: Text
+            name: '-7de24ecc'
+            widget: string
+          - hint: 'Original text: DR TRUSTFUND, key: 5508d7eb'
+            label: Text
+            name: 5508d7eb
+            widget: string
+          - hint: 'Original text: CEO, DADDYHASACOMPANY, key: -70c055e5'
+            label: Text
+            name: '-70c055e5'
+            widget: string
+          - hint: >-
+              Original text: Love what NOVA does, always top of the line, key:
+              4d992763
+            label: Text
+            name: 4d992763
+            widget: string
+          - hint: 'Original text: OUR PAST PROJECTS, key: 34d46ad4'
+            label: Text
+            name: 34d46ad4
+            widget: string
+          - hint: 'Original text: LET''S TALK, key: 30c198e5'
+            label: Text
+            name: 30c198e5
+            widget: string
+          - hint: >-
+              Original text: I gave it a cold? I gave it a virus. A computer
+              virus. Jaguar shark! So tell me - does it really exist? Must go
+              faster... go, go, go, go, go! This thing comes fully loaded. AM/FM
+              radio., key: -2cc0e5d4
+            label: Text
+            name: '-2cc0e5d4'
+            widget: text
+          - hint: 'Original text: Name, key: 24eeab'
+            label: Text
+            name: 24eeab
+            widget: string
+          - hint: 'Original text: Email Address, key: -2b7010d0'
+            label: Text
+            name: '-2b7010d0'
+            widget: string
+          - hint: 'Original text: Your Message, key: -7fc0aae6'
+            label: Text
+            name: '-7fc0aae6'
             widget: string
           - hint: >-
               Original text: Thank you! Your submission has been received!, key:
@@ -820,134 +669,56 @@ collections:
             label: Text
             name: '-7c112e99'
             widget: string
-          - hint: 'Original text: 22.4.2023, key: 1c12c5e7'
+          - hint: 'Original text: NEXT PROJECT, key: 2df952cc'
             label: Text
-            name: 1c12c5e7
+            name: 2df952cc
             widget: string
-          - hint: 'Original text: 攝影, key: c9df4'
+          - hint: 'Original text: No items found., key: 3d503d2b'
             label: Text
-            name: c9df4
+            name: 3d503d2b
+            widget: string
+          - hint: 'Original text: PAGE , key: 485f771'
+            label: Text
+            name: 485f771
+            widget: string
+          - hint: 'Original text: HEADER, key: 7ec7d68d'
+            label: Text
+            name: 7ec7d68d
+            widget: string
+          - hint: 'Original text: SECTION HEADER 1, key: -3e3171a7'
+            label: Text
+            name: '-3e3171a7'
+            widget: string
+          - hint: 'Original text: SECTION HEADER 2, key: -3e3171a6'
+            label: Text
+            name: '-3e3171a6'
             widget: string
           - hint: >-
-              Original text: 「百靈牌設計師 Dieter Rams 的家，原來是這樣？ 」-
-              實用極簡大師的居所，住了半世紀卻仍是自己理想中的樣貌, key: -271fd658
+              Original text: Paragraph: Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Suspendisse varius enim in eros elementum
+              tristique. Duis cursus., key: 33a98517
             label: Text
-            name: '-271fd658'
-            widget: string
-          - hint: >-
-              Original text: 被譽為 90 年代工業設計之父的 Dieter
-              Rams，即便你認為你沒聽過他的名字、他的頭銜，但以一個追求設計、質感生活的人而言，在不知不覺中，你早已經認識他的作品，也聽過他所說過的話。,
-              key: -4525fb8f
-            label: Text
-            name: '-4525fb8f'
+            name: 33a98517
             widget: text
-          - hint: 'Original text:  “Less, but better.”—— Dieter Rams, key: -6c7c83e5'
+          - hint: 'Original text: LABEL, key: 44d86d4'
             label: Text
-            name: '-6c7c83e5'
+            name: 44d86d4
             widget: string
-          - hint: >-
-              Original text: 把日式極簡的精神，與德國的工藝集於一身，且多次與廣為人知的德國家電品牌：BRAUN
-              百靈牌合作，設計出諸多款經典物件，便是他在工業設計屆之所以留名的原因之一。而在紀錄片導演 Gray Hustwit 拍攝的紀錄片《
-              Rams 》中，Dieter Rams
-              罕見地將自己的起居空間公開，不僅讓世人能以動態傳記的方式瞭解他的一生，更藉由他周遭的一切，具象化他的設計理念。, key:
-              27bf524d
+          - hint: 'Original text: Primary, key: 5075a5e2'
             label: Text
-            name: 27bf524d
-            widget: text
-          - hint: 'Original text: 家裡的所有物件，都與工作相關, key: -5159129e'
-            label: Text
-            name: '-5159129e'
+            name: 5075a5e2
             widget: string
-          - hint: >-
-              Original text: 在一個多小時的紀錄片中，Dieter Rams
-              的家出現的畫面不算太多，不過卻足以讓人明白「什麼樣的人，住什麼樣的空間」。在明亮簡潔的平房裡，每一樣物件彷彿都擺放在他們專屬的位置上，《
-              Dieter Rams : As little design as possible 》的編輯作者 Sophie Lovell
-              就說到，Dieter Rams
-              喜歡將自己置於一個極度靜謐的環境，在這個簡單安靜的環境之下，他更能夠專注於工作，而在這個他住了將近半世紀的家中，除了和工作相關的工具和物品，在他的家中幾乎找不到。,
-              key: -25af3ce5
+          - hint: 'Original text: Secondary, key: 46b69154'
             label: Text
-            name: '-25af3ce5'
-            widget: text
-          - hint: 'Original text: 生活與設計永不分離, key: -28b1189'
-            label: Text
-            name: '-28b1189'
+            name: 46b69154
             widget: string
-          - hint: >-
-              Original text:
-              沒有人說作為一名設計師就一定得要讓自己做到徹頭徹尾的極致，從住所、用度到生活的所有細節無處不追求所謂的「有質感」，但從 Dieter
-              Rams 的家和他的故事可以知道，唯有從生活最微小、日常的枝微末節開始講究，並抱持著「 Less, but better
-              」的信念，才能讓他不單是工業設計師 Dieter Rams，更是影響了將近整個世紀工業設計學的重要指標。, key:
-              54150b21
+          - hint: 'Original text: Link, key: 24241a'
             label: Text
-            name: 54150b21
-            widget: text
-          - hint: 'Original text: Editor Credit, key: -50b1f6f4'
-            label: Text
-            name: '-50b1f6f4'
+            name: 24241a
             widget: string
-          - hint: 'Original text: Written by Tokiko Nitta, key: 66ea30a3'
+          - hint: 'Original text: AWARD NAME, key: 31c3be8e'
             label: Text
-            name: 66ea30a3
-            widget: string
-          - hint: 'Original text: Photographed by Kazumasa Harada, key: -3e66aaf2'
-            label: Text
-            name: '-3e66aaf2'
-            widget: string
-          - hint: 'Original text: Information, key: -273fe2f4'
-            label: Text
-            name: '-273fe2f4'
-            widget: string
-          - hint: 'Original text: 勒內．布里：視覺爆炸, key: 71deb1ee'
-            label: Text
-            name: 71deb1ee
-            widget: string
-          - hint: 'Original text: 展期：, key: 16816f0'
-            label: Text
-            name: 16816f0
-            widget: string
-          - hint: 'Original text: 2023/3/18（週六）－ 6/18（週日）, key: 4168dc38'
-            label: Text
-            name: 4168dc38
-            widget: string
-          - hint: 'Original text: 地點：, key: 15b872c'
-            label: Text
-            name: 15b872c
-            widget: string
-          - hint: 'Original text: 臺北市立美術館 3A、3B 展覽室（台北市中山區中山北路三段181號）, key: 377be35e'
-            label: Text
-            name: 377be35e
-            widget: string
-          - hint: 'Original text: 更多資訊：, key: -2a912d0f'
-            label: Text
-            name: '-2a912d0f'
-            widget: string
-          - hint: 'Original text: 官方網站, key: 2b306c48'
-            label: Text
-            name: 2b306c48
-            widget: string
-          - hint: 'Original text:  / , key: 7df1'
-            label: Text
-            name: 7df1
-            widget: string
-          - hint: 'Original text: FACEBOOK, key: 4c478ac6'
-            label: Text
-            name: 4c478ac6
-            widget: string
-          - hint: 'Original text: Share this story, key: -6280980c'
-            label: Text
-            name: '-6280980c'
-            widget: string
-          - hint: 'Original text: Facebook, key: 217bfee6'
-            label: Text
-            name: 217bfee6
-            widget: string
-          - hint: 'Original text: Twitter, key: 2c9a4253'
-            label: Text
-            name: 2c9a4253
-            widget: string
-          - hint: 'Original text: Other Article, key: 2f009fa6'
-            label: Text
-            name: 2f009fa6
+            name: 31c3be8e
             widget: string
       - label: Links
         name: links
@@ -961,37 +732,49 @@ collections:
             label: Link
             name: 2f
             widget: string
-          - hint: 'Original link: /about-us-copy-2, key: -527c9066'
+          - hint: 'Original link: /nova-projects, key: 4fca612c'
             label: Link
-            name: '-527c9066'
+            name: 4fca612c
             widget: string
-          - hint: 'Original link: /contact-us-real, key: 5a6382b1'
+          - hint: 'Original link: /about-nova, key: -57815025'
             label: Link
-            name: 5a6382b1
+            name: '-57815025'
+            widget: string
+          - hint: 'Original link: /contact-nova, key: 13767368'
+            label: Link
+            name: '13767368'
+            widget: string
+          - hint: >-
+              Original link:
+              https://architecture-studio-portfolio-theme.webflow.io/projects/tempore-voluptatem,
+              key: 30cb7f8e
+            label: Link
+            name: 30cb7f8e
+            widget: string
+          - hint: >-
+              Original link:
+              https://architecture-studio-portfolio-theme.webflow.io/projects/quam,
+              key: 2e64181e
+            label: Link
+            name: 2e64181e
+            widget: string
+          - hint: >-
+              Original link:
+              https://architecture-studio-portfolio-theme.webflow.io/projects/et-2,
+              key: 2e5e9962
+            label: Link
+            name: 2e5e9962
             widget: string
           - hint: 'Original link: #, key: 23'
             label: Link
             name: '23'
             widget: string
-          - hint: 'Original link: http://webflow.com, key: 20a012c3'
+          - hint: >-
+              Original link:
+              mailto:barsha@righthemisphere.in?subject=Lets%20collaborate, key:
+              -863eb69
             label: Link
-            name: 20a012c3
-            widget: string
-          - hint: 'Original link: http://www.msn.com, key: -69fe48e'
-            label: Link
-            name: '-69fe48e'
-            widget: string
-          - hint: 'Original link: http://www.google.com, key: 4a276395'
-            label: Link
-            name: 4a276395
-            widget: string
-          - hint: 'Original link: http://www.yahoo.com, key: -6c7d996'
-            label: Link
-            name: '-6c7d996'
-            widget: string
-          - hint: 'Original link: /latest-posts, key: -666eb044'
-            label: Link
-            name: '-666eb044'
+            name: '-863eb69'
             widget: string
       - label: Images
         name: images
@@ -1002,7 +785,7 @@ collections:
             widget: hidden
             default: Images
           - label: Image
-            name: i25376334
+            name: '-2a484e45'
             widget: object
             fields:
               - name: url
@@ -1015,7 +798,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: i3df03dee
+            name: 38e1076f
             widget: object
             fields:
               - name: url
@@ -1028,7 +811,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: 62049a4e
+            name: 673c3753
             widget: object
             fields:
               - name: url
@@ -1041,7 +824,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: 1bd071f6
+            name: '-76d4ad34'
             widget: object
             fields:
               - name: url
@@ -1054,7 +837,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: 5b7322ed
+            name: 3dae9dd6
             widget: object
             fields:
               - name: url
@@ -1067,7 +850,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: 1f7851ad
+            name: af21760
             widget: object
             fields:
               - name: url
@@ -1080,7 +863,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: 50b6ad37
+            name: '-3e33bffb'
             widget: object
             fields:
               - name: url
@@ -1093,7 +876,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: 4d6e02b9
+            name: 37373ef3
             widget: object
             fields:
               - name: url
@@ -1106,7 +889,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: i296da242
+            name: 3d496353
             widget: object
             fields:
               - name: url
@@ -1119,7 +902,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: 121345ca
+            name: '-504ea6d'
             widget: object
             fields:
               - name: url
@@ -1132,7 +915,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: 1031ef84
+            name: '-4f6d2ec'
             widget: object
             fields:
               - name: url
@@ -1145,7 +928,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: 36c5e456
+            name: '-4e8bb6b'
             widget: object
             fields:
               - name: url
@@ -1158,7 +941,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: '10400705'
+            name: '-7e25793e'
             widget: object
             fields:
               - name: url
@@ -1171,7 +954,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: 11270f6e
+            name: '-7e3390bf'
             widget: object
             fields:
               - name: url
@@ -1184,7 +967,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: '11270333'
+            name: '-7e1761bd'
             widget: object
             fields:
               - name: url
@@ -1197,7 +980,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: 1694cc5
+            name: 52d21d81
             widget: object
             fields:
               - name: url
@@ -1210,7 +993,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: '-4cc98a4'
+            name: 1525bfd4
             widget: object
             fields:
               - name: url
@@ -1223,7 +1006,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: 251fca1e
+            name: '-2e0cf329'
             widget: object
             fields:
               - name: url
@@ -1236,7 +1019,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: '-53d54ac'
+            name: '-db3d8aa'
             widget: object
             fields:
               - name: url
@@ -1249,7 +1032,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: '-52125aa'
+            name: '-2577fd5e'
             widget: object
             fields:
               - name: url
@@ -1262,7 +1045,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: '-52f3d2b'
+            name: '-2b1beb3c'
             widget: object
             fields:
               - name: url
@@ -1275,7 +1058,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: '-4dab025'
+            name: 766e6ddb
             widget: object
             fields:
               - name: url
@@ -1288,7 +1071,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: '-504f6a8'
+            name: 3364cf61
             widget: object
             fields:
               - name: url
@@ -1301,7 +1084,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: '-4f6df27'
+            name: '-1808ebbb'
             widget: object
             fields:
               - name: url
@@ -1314,7 +1097,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: '-4e8c7a6'
+            name: '-17fad43a'
             widget: object
             fields:
               - name: url
@@ -1326,5 +1109,56 @@ collections:
                 label: Image Alt
                 widget: string
                 required: false
-local_backend: true
+          - label: Image
+            name: 441957b8
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 4e24ca5d
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-42129540'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 5c03d364
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
 publish_mode: editorial_workflow
